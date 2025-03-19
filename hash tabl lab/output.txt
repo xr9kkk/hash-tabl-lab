@@ -1,0 +1,5 @@
+begin 1
+then 1
+program 1
+if 1
+var 1
