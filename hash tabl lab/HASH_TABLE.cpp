@@ -90,6 +90,24 @@ void HASH_TABLE::insert(const std::string& key)
 	table[hash_index] = entry;
 }
 
+void HASH_TABLE::remove(const std::string& key) {
+	int hash_index = hash_func(key);
+	HASH_NODE* entry = table[hash_index];
+	HASH_NODE* prev = nullptr;
+	while (entry) {
+		if (entry->key == key) {
+			if (prev)
+				prev->next = entry->next;
+			else
+				table[hash_index] = entry->next;
+			delete entry;
+			return;
+		}
+		prev = entry;
+		entry = entry->next;
+	}
+}
+
 int HASH_TABLE::get(const std::string& key) const
 {
 	int hash_index = hash_func(key);

@@ -29,6 +29,7 @@ public:
 
 	void clear();
 	void insert(const std::string& key);
+	void remove(const std::string& key);
 	int get(const std::string& key) const;
 	void print() const;
 	void save_to_file(const std::string& fname) const;
